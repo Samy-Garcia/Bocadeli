@@ -27,3 +27,5 @@ const customersSchema = new Schema({
 })
 
 export default model("Customer", customersSchema)
+
+//amo a astrid
