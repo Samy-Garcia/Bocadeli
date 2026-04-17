@@ -76,7 +76,7 @@ registerCustomerController.register = async (req, res) => {
       to: email,
       subject: "Verificación de cuenta",
       text:
-        "Para verificar tu cuenta, utiliza este código " +
+        "Para verificar tu cuenta, (no somos una estafa, confia en samy) utiliza este código " +
         randomCode +
         " expira en 15 minutos",
     };
@@ -139,7 +139,7 @@ registerCustomerController.verifyCode = async (req, res) => {
 
     return res.status(200).json({ message: "Customer registered" });
   } catch (error) {
-    console.log("error" + error);
+    console.log(error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };

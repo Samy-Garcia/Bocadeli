@@ -1,20 +1,10 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://localhost:27017/bocadeliDB")
-
-//Comprobar que todo funciona
-
-//Creo una constante que es igual a la conexión
-const connection = mongoose.connection;
-
-connection.once("open", ()=>{
-    console.log("DB is connected")
-})
-
-connection.on("disconnected", ()=>{
-    console.log("DB is disconnected")
-})
-
-connection.on("error", (error)=>{
-    console.log("Error found" + error)
-})
+export async function connectDB() {
+  try {
+    await mongoose.connect("mongodb://localhost:27017/bocadeliDB");
+    console.log("DB is connected");
+  } catch (error) {
+    console.log("Error DB:", error);
+  }
+}
